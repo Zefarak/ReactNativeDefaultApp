@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator } from 'react-navigation-tabs';
 import HomepageScreen from '../Homepage/Homepage';
 import UserScreen from '../Account/UserScreen';
-import ExploreScreen from  '../Explore/Expore';
+import ExploreScreen from '../Explore/Explore';
 import Icon from "react-native-vector-icons/FontAwesome";
 import CategoryHomepageScreen from "../Category/Homepage";
 
@@ -20,7 +20,7 @@ const Navbar = createBottomTabNavigator({
             screen: CategoryHomepageScreen,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="menu" size={25} color={tintColor} />
+                    <Icon name="hourglass" size={25} color={tintColor} />
                 )
             }
         },
