@@ -21,6 +21,9 @@ export default MyCard
 const styles = StyleSheet.create({
     cardStyle: {
         alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%',
 
     }
 })

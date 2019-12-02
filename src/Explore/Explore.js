@@ -14,7 +14,8 @@ class ExploreScreen extends React.Component {
 
         this.state = {
             refresh: false,
-            categories: {}
+            workoutCategories: {},
+            workoutCategoriesLoading: false,
         }
     }
 
@@ -26,7 +27,8 @@ class ExploreScreen extends React.Component {
             .then(respData=>{
                 const categories = respData;
                 thisComp.setState({
-                    categories: respData,
+                    workoutCategories: respData,
+                    workoutCategoriesLoading: true
                 })
             })
             .catch(error=>{
@@ -48,14 +50,22 @@ class ExploreScreen extends React.Component {
                 <MyHeader title='Explore Screen' myStyle={styles.headerStyle} />
                 <View>
                     <Text> Workout Categories </Text>
-                    <View style={styles.testStyle}>
-                        <MyCard title='Works!' style={styles.cardStyle} />
-                        <MyCard title='Works!' style={styles.cardStyle} />
-                        <MyCard title='Works!' style={styles.cardStyle} />
-                        <MyCard title='Works!' style={styles.cardStyle} />
+                    <View>
+                        {this.state.workoutCategoriesLoading ?
+                            this.state.workoutCategories.map((category,i) => {
+                                return(
+                                    <View style={styles.cardStyle}>
+                                        <MyCard title={category.title} />
+                                    </View>
+                                )
+                            })
+                        :<Text>Sorry No data</Text>}
                     </View>
                 </View>
 
+                <View>
+                    <Text>Exercises Category</Text>
+                </View>
             </View>
         );
     }
@@ -78,13 +88,13 @@ const styles = StyleSheet.create({
     },
     testStyle:{
         flexDirection: 'row',
-        width: '100%',
+        flex: 1,
         flexWrap: 'wrap',
-        alignItems: 'center'
+  
     },
     cardStyle: {
-        width: '30%',
-        margin: '1%',
+       width:100,
+       height:100,
     }
 })
 

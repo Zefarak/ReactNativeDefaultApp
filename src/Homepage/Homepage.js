@@ -1,8 +1,9 @@
-import React from 'react';
-import {Text, View, StyleSheet, SectionList, SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, SectionList, SafeAreaView, Button} from 'react-native';
 
 import MyHeader from '../components/General/Header'
 import {SectionItem, SectionHeader} from "./components/SectionItem";
+import { lookupPublicOptions } from '../Account/auth';
 
 
 const DATA = [
@@ -42,17 +43,40 @@ const DATA = [
 ];
 
 const HomepageScreen = props => {
+    const [workouts, setWorkout] = useState('');
+    const [workoutsLoading, setWorkoutLoading] = useState(false)
+
+    loadWorkOut = () => {
+        fetch(WORKOUTS_ENDPOINT, lookupPublicOptions)
+        .then(resp=>resp.json())
+        .then(respData=>{
+            setWorkout(respData)
+            setWorkoutLoading(true)
+        })
+        .catch(error=> alert('Check you internet provider you motherfucker'))
+    }
+    
+    handlePress = (id) => {
+        console.log(id)
+    }
 
     return (
         <View style={styles.homepage}>
             <MyHeader title='Homepage' />
+            <Button title='Test Button' onPress={()=>{props.navigation.navigate('WorkoutDetail',{
+                                                                    itemId: 86,
+                                                                    title: 'anything you want here',
+                                                                    } 
+                                                                    )
+                                                        }}
+             />
             <SafeAreaView style={styles.container}>
                 <SectionList
                     sections={DATA}
                     keyExtractor={(item, index) => item + index}
-                    renderItem={({ item }) => <SectionItem title={item} />}
+                    renderItem={({ item }) => <SectionItem item={item} handlePress={handlePress}  />}
                     renderSectionHeader={({ section: { title } }) => (
-                        <SectionHeader title={title} />
+                        <SectionHeader title={title}  />
                     )}
                 />
             </SafeAreaView>

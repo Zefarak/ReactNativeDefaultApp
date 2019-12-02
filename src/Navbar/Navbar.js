@@ -5,6 +5,7 @@ import UserScreen from '../Account/UserScreen';
 import ExploreScreen from '../Explore/Explore';
 import Icon from "react-native-vector-icons/FontAwesome";
 import CategoryHomepageScreen from "../Category/Homepage";
+import WorkOutNavigation from '../WorkOut/WorkOutNavigator';
 
 
 const Navbar = createBottomTabNavigator({
@@ -31,6 +32,9 @@ const Navbar = createBottomTabNavigator({
                     <Icon name="search" size={25} color={tintColor} />
                 )
             }
+        },
+        Workouts: {
+            screen: WorkOutNavigation
         },
         User: {
             screen: UserScreen,

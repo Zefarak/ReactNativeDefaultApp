@@ -6,3 +6,7 @@ export const REGISTER_ENDPOINT = SITE + 'accounts/create/user/';
 
 
 export const EXERCISE_CATEGORIES_ENDPOINT = SITE + 'exercises/category/list/';
+export const EXERCISES_LIST_ENDPOINT = SITE + 'exercises/list/';
+
+
+export const WORKOUTS_ENDPOINT = SITE + 'workouts/list/';
