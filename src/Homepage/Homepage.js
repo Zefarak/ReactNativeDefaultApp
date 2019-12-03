@@ -50,15 +50,15 @@ const HomepageScreen = props => {
         fetch(WORKOUTS_ENDPOINT, lookupPublicOptions)
         .then(resp=>resp.json())
         .then(respData=>{
-            setWorkout(respData)
+            setWorkout(respData);
             setWorkoutLoading(true)
         })
         .catch(error=> alert('Check you internet provider you motherfucker'))
-    }
-    
+    };
+
     handlePress = (id) => {
         console.log(id)
-    }
+    };
 
     return (
         <View style={styles.homepage}>
@@ -66,7 +66,7 @@ const HomepageScreen = props => {
             <Button title='Test Button' onPress={()=>{props.navigation.navigate('WorkoutDetail',{
                                                                     itemId: 86,
                                                                     title: 'anything you want here',
-                                                                    } 
+                                                                    }
                                                                     )
                                                         }}
              />

@@ -1,86 +1,87 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, KeyboardAvoidingView, Text, Button } from "react-native";
+import { View, ScrollView, StyleSheet, KeyboardAvoidingView, Text, Button, AsyncStorage } from "react-native";
 import {colors} from "../../src/constants/styles";
 import MyHeader from "../components/General/Header";
 import InputField from "../components/General/InputField";
 import {requestToken} from '../Account/auth';
 
 
-const LoginScreen = props => {
-    const [username, setUsername ] = useState('');
-    const [password, setPassword] = useState('');
+class LoginScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
 
     handleUsername = text => {
-        setUsername(text)
+        this.setState({
+            username: text
+        })
     };
 
     handlePassword = text => {
-        setPassword(text)  
+        this.setState({
+            password: text
+        })
     };
 
-    handleRegisterView = () =>{
-        props.handleView()
+    handleLogin = async () => {
+        const data = this.state;
+        console.log(data.username, data.password);
+        const loginOptions = requestToken(data);
+        alert('You Logged in');
+        this.props.navigation.navigate('HomeScreen')
+
+    };
+
+
+    render() {
+
+        return (
+            <KeyboardAvoidingView style={[{ backgroundColor: 'teal' }, styles.wrapper]} behavior='padding'>
+                <MyHeader title='Login'/>
+                <View style={styles.scrollViewWrapper}>
+                    <ScrollView style={styles.scrollView}>
+                        <Text style={styles.loginHeader}>
+                            Type your username and password
+                        </Text>
+                        <InputField
+                            labelText="EMAIL ADDRESS"
+                            labelTextSize={14}
+                            labelColor={colors.white}
+                            textColor={colors.white}
+                            borderBottomColor={colors.white}
+                            inputType="email"
+                            customStyle={{marginBottom:30}}
+                            handleInput={this.handleUsername}
+                        />
+                        <InputField
+                            labelText="PASSWORD"
+                            labelTextSize={14}
+                            labelColor={colors.white}
+                            textColor={colors.white}
+                            borderBottomColor={colors.white}
+                            inputType="password"
+                            customStyle={{marginBottom:30}}
+                            handleInput={this.handlePassword}
+
+                        />
+                        <Button
+                            title='Login'
+                            onPress={this.handleLogin}
+                        />
+                    </ScrollView>
+                </View>
+            </KeyboardAvoidingView>
+        )
     }
 
 
-    handleLogin = () => {
-        console.log('hitted')
-        if (username != '' & password != ''){
-            const data = {
-                username: username,
-                password: password
-            }
-            console.log('worked!', data)
-            const loginOptions = requestToken(data);
-            const {access, refresh} = loginOptions
-        }
-        else{
-            console.log('my data', username, password)
-            alert('Missing Email or Password')
-            
-        }
-    }
-
-    return (
-        <KeyboardAvoidingView style={[{ backgroundColor: 'teal' }, styles.wrapper]} behavior='padding'>
-            <MyHeader title='Login'/>
-            <View style={styles.scrollViewWrapper}>
-                <ScrollView style={styles.scrollView}>
-                    <Text style={styles.loginHeader}>
-                        Type your username and password
-                    </Text>
-                    <InputField
-                        labelText="EMAIL ADDRESS"
-                        labelTextSize={14}
-                        labelColor={colors.white}
-                        textColor={colors.white}
-                        borderBottomColor={colors.white}
-                        inputType="email"
-                        customStyle={{marginBottom:30}}
-                        handleInput={handleUsername}
-                    />
-                <InputField
-                    labelText="PASSWORD"
-                    labelTextSize={14}
-                    labelColor={colors.white}
-                    textColor={colors.white}
-                    borderBottomColor={colors.white}
-                    inputType="password"
-                    customStyle={{marginBottom:30}}
-                    handleInput={handlePassword}
-
-                />
-                <Button 
-                    title='Login'
-                    onPress={handleLogin}
-                />
-                </ScrollView>
-               
-            </View>
-        </KeyboardAvoidingView>
-    )
-};
-
+}
 
 const styles = StyleSheet.create({
     wrapper: {

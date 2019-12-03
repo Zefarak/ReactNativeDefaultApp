@@ -9,8 +9,8 @@ const InputField = props => {
     handleInput = text => {
         console.log(text);
         setValue(text);
-        props.handleInput(value)
-    }
+        props.handleInput(text)
+    };
 
     const {
         labelText,
@@ -33,11 +33,11 @@ const InputField = props => {
             <TextInput
               onChangeText={handleInput}
               value={value}
-            autoCorrect={false}
-            style={[
-                { color: inputColor, borderBottomColor: borderBottom },
-                styles.inputFiled
-            ]}
+              autoCorrect={false}
+              style={[
+                  { color: inputColor, borderBottomColor: borderBottom },
+                  styles.inputFiled
+              ]}
             secureTextEntry={inputType === "password"}
             />
       </View>

@@ -1,4 +1,5 @@
 import { TOKEN_ENDPOINT, REFRESH_TOKEN } from "../constants/endpoints";
+import {AsyncStorage} from "react-native";
 
 
 export function lookupOptionsGETWithToken(token) {
@@ -57,22 +58,22 @@ export function lookupPOSTOptions(data){
 
 
 export async function requestToken(data){
-   
+
     return fetch(TOKEN_ENDPOINT, lookupPOSTOptions(data))
         .then((response)=> response.json())
-        .then((responseData)=>{
-            console.log('works', responseData)
+        .then(async (responseData)=>{
+            await AsyncStorage.setItem('access_token', responseData.access);
+            await AsyncStorage.setItem('refresh_token', responseData.refresh);
+            await AsyncStorage.setItem('loggedIn', true);
             return {
                 access_token: responseData.access,
                 refresh_token: responseData.refresh,
                 loggedIn: true
             }
         })
-        .catch((error)=>{
-            console.error(error)
-            return {
-                loggedIn: false
-            }
+        .catch(async (error)=>{
+            console.error(error);
+            await AsyncStorage.setItem('loggedIn', false)
         })
 }
 
@@ -86,7 +87,7 @@ export async function requestRefreshToken(refresh_token){
             }
         })
         .catch((error)=>{
-            console.error(error)
+            console.error(error);
             return {
                 loggedIn: false,
                 access_token: '',

@@ -10,3 +10,4 @@ export const EXERCISES_LIST_ENDPOINT = SITE + 'exercises/list/';
 
 
 export const WORKOUTS_ENDPOINT = SITE + 'workouts/list/';
+export const WORKOUTS_CREATE = SITE + 'workouts/create/';
