@@ -1,4 +1,4 @@
-import { TOKEN_ENDPOINT, REFRESH_TOKEN } from "../constants/endpoints";
+import { TOKEN_ENDPOINT, REFRESH_TOKEN, CURRENT_USER_ENDPOINT } from "../constants/endpoints";
 import {AsyncStorage} from "react-native";
 
 
@@ -96,3 +96,34 @@ export async function requestRefreshToken(refresh_token){
         })
 }
 
+
+export async function checkLoginAndRefreshToken() {
+    const access_token = await AsyncStorage.getItem('access_token', '')
+    const refresh_token = await AsyncStorage.getItem('refresh_token', '')
+    const loggedIn = await AsyncStorage.getItem('loggedIn', false)
+    if (loggedIn) {
+        fetch(CURRENT_USER_ENDPOINT, lookupOptionsGETWithToken(access_token))
+            .then(resp=>resp.json())
+            .then(async(respData)=>{
+                if (respData.status == 401) {
+                    fetch(REFRESH_TOKEN, lookupOptionsPOSTResfreshToken(refresh_token))
+                        .then(resp=>resp.json())
+                        .then(async(respData)=> {
+                            if (respData.status === 401) {
+                                await AsyncStorage.setItem('loggedIn', false)
+                            } else {
+                                const new_token = respData.access;
+                                await AsyncStorage.setItem('access_token', new_token)
+                                return false
+                            }
+                        })
+                } else {
+                    return true
+                }
+            })
+
+    } else {
+        return false
+    }
+
+}
