@@ -4,8 +4,7 @@ import ActionCreators from '../../redux/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import LoginScreen from "./Login";
-import RegisterScreen from "./Register";
-import LoginWallparerScreen from "../components/LoginWallpaperScreen";
+import LoginWallpaperScreen from "../components/LoginWallpaperScreen";
 
 
 class UserScreen extends React.Component {
@@ -19,8 +18,6 @@ class UserScreen extends React.Component {
     }
 
     handleView = () => {
-       console.log('hitted!!!')
-        
         this.setState({
             registerView: !this.state.registerView
         })
@@ -34,8 +31,12 @@ class UserScreen extends React.Component {
     }
 
     handleLoginNavigation = () => {
-        this.props.navigation.navigate('')
-    }
+        this.props.navigation.navigate('RegisterOrLogin');
+    };
+
+    handleRegister = () => {
+        this.props.navigation.navigate('Register');
+    };
 
     render() {
         const {isLoggedIn, logimMessage, isPAsswordSet} = this.props.appState;
@@ -47,7 +48,7 @@ class UserScreen extends React.Component {
             {LoggedIn ?
                  <LoginScreen />
                  :
-                <LoginWallparerScreen handleButton={this.handleLoginNavigation} />
+                <LoginWallpaperScreen handleButton={this.handleLoginNavigation} handleRegister={this.handleRegister} navigation={this.props.navigation} />
              }
            </View>
         );

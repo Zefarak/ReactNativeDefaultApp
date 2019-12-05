@@ -65,15 +65,11 @@ export async function requestToken(data){
             await AsyncStorage.setItem('access_token', responseData.access);
             await AsyncStorage.setItem('refresh_token', responseData.refresh);
             await AsyncStorage.setItem('loggedIn', true);
-            return {
-                access_token: responseData.access,
-                refresh_token: responseData.refresh,
-                loggedIn: true
-            }
+            return true
         })
         .catch(async (error)=>{
-            console.error(error);
             await AsyncStorage.setItem('loggedIn', false)
+            return false
         })
 }
 
@@ -95,7 +91,6 @@ export async function requestRefreshToken(refresh_token){
             }
         })
 }
-
 
 export async function checkLoginAndRefreshToken() {
     const access_token = await AsyncStorage.getItem('access_token', '')

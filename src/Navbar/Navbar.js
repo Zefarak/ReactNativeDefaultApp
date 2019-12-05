@@ -6,6 +6,8 @@ import ExploreScreen from '../Explore/Explore';
 import Icon from "react-native-vector-icons/FontAwesome";
 import CategoryHomepageScreen from "../Category/Homepage";
 import WorkOutNavigation from '../WorkOut/WorkOutNavigator';
+import AccountNavigation from "../Account/AccountNavigation";
+import InputField from "../components/General/InputField";
 
 
 const Navbar = createBottomTabNavigator({
@@ -37,11 +39,12 @@ const Navbar = createBottomTabNavigator({
             screen: WorkOutNavigation
         },
         User: {
-            screen: UserScreen,
+            screen: AccountNavigation,
             navigationOptions: {
-                tabBarIcon: ({ tintColor}) => (
+                tabBarIcon: ({tintColor}) => (
                     <Icon name='user' size={25} color={tintColor} />
-                )
+                ),
+
             }
         }
     },

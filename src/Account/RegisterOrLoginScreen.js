@@ -6,16 +6,16 @@ import RegisterScreen from './Register';
 
 const RegisterOrLoginScreen = props => {
 
-    const [registerView, setRegisterView] =  useState(false)
+    const [registerView, setRegisterView] =  useState(false);
 
     handleRegisterView = () => {
-        const register = registerView
+        const register = registerView;
         setRegisterView(!register)
     }
 
     return (
         <View>
-            {registerView ? 
+            {registerView ?
                 <RegisterScreen />
             :
                 <LoginScreen />
@@ -23,3 +23,6 @@ const RegisterOrLoginScreen = props => {
         </View>
     )
 }
+
+
+export default RegisterOrLoginScreen;
