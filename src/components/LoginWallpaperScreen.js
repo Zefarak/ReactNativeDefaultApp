@@ -15,6 +15,10 @@ class LoginWallpaperScreen extends React.Component{
         this.props.navigation.navigate('Login')
     };
 
+    refreshPage = () => {
+        this.props.refreshPage()
+    }
+
     render(){
 
         return (
@@ -22,10 +26,10 @@ class LoginWallpaperScreen extends React.Component{
                 <MyHeader title='Login or Register' />
                 <Image style={styles.image} source={require('../../assets/my_images/login_image.jpg')} />
                 <Text>***</Text>
-                <MyButton style={styles.shadowButton} onPress={this.handleLogin}>
+                <MyButton style={styles.shadowButton} onPress={this.handleLogin} refreshPage={this.refreshPage}>
                     <Text center caption gray>Login</Text>
                 </MyButton>
-                <MyButton style={styles.shadowButton} onPress={this.handleRegister}>
+                <MyButton style={styles.shadowButton} onPress={this.handleRegister} refreshPage={this.refreshPage}>
                     <Text center caption gray>Register</Text>
                 </MyButton>
             </View>

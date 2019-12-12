@@ -11,3 +11,5 @@ export const EXERCISES_LIST_ENDPOINT = SITE + 'exercises/list/';
 
 export const WORKOUTS_ENDPOINT = SITE + 'workouts/list/';
 export const WORKOUTS_CREATE = SITE + 'workouts/create/';
+export const WORKOUT_DETAIL_ENDPOINT = SITE + 'workouts/retrieve-update-delete/';
+export const WORKOUT_PARTS_LIST_ENDPOINT = SITE + 'workouts/workout-part/list/';

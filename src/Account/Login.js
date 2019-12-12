@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, KeyboardAvoidingView, Text, Button, AsyncStorage } from "react-native";
-import {colors} from "../../src/constants/styles";
-import MyHeader from "../components/General/Header";
-import InputField from "../components/General/InputField";
+import { View, ScrollView, StyleSheet, Text } from "react-native";
+import {Input} from 'react-native-elements';
+import MyButton from '../components/Button';
+
 import {requestToken} from '../Account/auth';
 
 
@@ -31,71 +31,55 @@ class LoginScreen extends React.Component {
 
     handleLogin = async () => {
         const data = this.state;
-        console.log(data.username, data.password);
         const loginOptions = requestToken(data);
-        alert('You Logged in');
-        this.props.navigation.navigate('HomeScreen')
-
+        if(loginOptions){
+            this.props.navigation.push('Account', {loggedIn: true})
+        } else {
+            alert('Wrong Password')
+        }
     };
 
 
     render() {
-
-        return (
-            <KeyboardAvoidingView style={[{ backgroundColor: 'teal' }, styles.wrapper]} behavior='padding'>
-                <MyHeader title='Login'/>
-                <View style={styles.scrollViewWrapper}>
+            return(
+                <View style={styles.screen}>
                     <ScrollView style={styles.scrollView}>
                         <Text style={styles.loginHeader}>
                             Type your username and password
                         </Text>
-                        <InputField
-                            labelText="EMAIL ADDRESS"
-                            labelTextSize={14}
-                            labelColor={colors.white}
-                            textColor={colors.white}
-                            borderBottomColor={colors.white}
-                            inputType="email"
-                            customStyle={{marginBottom:30}}
-                            handleInput={this.handleUsername}
+                        <Input
+                            placeholder='Username'
+                            onChangeText={this.handleUsername}
+                            
                         />
-                        <InputField
-                            labelText="PASSWORD"
-                            labelTextSize={14}
-                            labelColor={colors.white}
-                            textColor={colors.white}
-                            borderBottomColor={colors.white}
-                            inputType="password"
-                            customStyle={{marginBottom:30}}
-                            handleInput={this.handlePassword}
-
-                        />
-                        <Button
-                            title='Login'
-                            onPress={this.handleLogin}
-                        />
+                        <Input
+                            placeholder='Password'
+                            onChangeText={this.handlePassword}
+                            secureTextEntry={true}
+                            password={true}
+                        /> 
+                        <MyButton style={styles.shadowButton} onPress={this.handleLogin}>
+                            <Text center caption gray>Login</Text>
+                        </MyButton>
+                        
                     </ScrollView>
                 </View>
-            </KeyboardAvoidingView>
-        )
-    }
-
-
-}
+            )
+            }
+        }
 
 const styles = StyleSheet.create({
+    screen:  {
+        height: '100%',
+        marginTop: '10%',
+        alignItems: 'center'
+    },
+    inputStyle: {
+        backgroundColor: 'grey',
+        width: '100%'
+    },
     wrapper: {
        height: '100%'
-    },
-    scrollViewWrapper: {
-        marginTop: 70,
-        flex: 1,
-        padding: 0,
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
     },
     scrollView: {
         paddingLeft: 30,
@@ -103,18 +87,25 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         flex: 1,
     },
-    loginHeader: {
-        fontSize: 30,
-        color: colors.white,
-        fontWeight: '300',
-        marginBottom: 40,
-    },
+    
     notificationWrapper: {
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
     },
+    shadowButton: {
+        width: '80%',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.00,
+        alignItems: 'center',
+        elevation: 24,
+    }
 });
 
 export default LoginScreen;

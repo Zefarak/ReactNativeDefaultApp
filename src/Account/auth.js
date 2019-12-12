@@ -109,10 +109,12 @@ export async function checkLoginAndRefreshToken() {
                             } else {
                                 const new_token = respData.access;
                                 await AsyncStorage.setItem('access_token', new_token)
+                                await AsyncStorage.setItem('loggedIn', true)
                                 return false
                             }
                         })
                 } else {
+                    await AsyncStorage.setItem('loggedIn', true)
                     return true
                 }
             })

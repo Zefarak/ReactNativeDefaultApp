@@ -6,11 +6,18 @@ import UserScreen from './UserScreen';
 import RegisterOrLoginScreen from "./RegisterOrLoginScreen";
 import RegisterScreen from "./Register";
 import {Image} from "react-native";
+import LoginScreen from './Login';
 
 
 const AccountNavigation = createStackNavigator({
     Account: {
         screen: UserScreen
+    },
+    Login: {
+        screen: LoginScreen,
+        navigationOptions: {
+            headerTitle: 'Login',
+        }
     },
     Register: {
         screen: RegisterScreen,

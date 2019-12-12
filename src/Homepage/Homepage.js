@@ -1,89 +1,72 @@
-import React, {useState} from 'react';
-import {Text, View, StyleSheet, SectionList, SafeAreaView, Button} from 'react-native';
-
+import React from 'react';
+import {Text, View, StyleSheet, SafeAreaView, Button, Item} from 'react-native';
+import {SectionItem} from './components/SectionItem'
 import MyHeader from '../components/General/Header'
-import {SectionItem, SectionHeader} from "./components/SectionItem";
 import { lookupPublicOptions } from '../Account/auth';
+import {WORKOUTS_ENDPOINT} from '../constants/endpoints'
+import { FlatList } from 'react-native-gesture-handler';
 
 
-const DATA = [
-    {
-        title: 'Lastest Workouts',
-        data: [
-            {
-                id: 1,
-                title: 'AMRAP: PushUps, Burpees',
-                details: 'Do as many pushups every 30 sec for 10 min, after that 2 min rest and do the same with burpees.',
-                exercises: ['PushUps', 'Burpies']
-        },
-            {
-                id:2,
-                title: 'DeadLift',
-                details: 'Do as many pushups every 30 sec for 10 min, after that 2 min rest and do the same with burpees.',
-                exercises: ['Deadlift', 'Row']
-            }]
-    },
-    {
-        title: 'Favorite Workouts',
-        data: [
-            {
-                id: 1,
-                title: 'AMRAP: PushUps, Burpees',
-                details: 'Do as many pushups every 30 sec for 10 min, after that 2 min rest and do the same with burpees.',
-                exercises: ['PushUps', 'Burpies']
-            },
-            {
-                id:2,
-                title: 'DeadLift',
-                details: 'Do as many pushups every 30 sec for 10 min, after that 2 min rest and do the same with burpees.',
-                exercises: ['Deadlift', 'Row']
-            }]
-    },
+class HomepageScreen extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            workouts:[],
+            doneLoadingWorkouts: false
+        }
+    }
 
-];
-
-const HomepageScreen = props => {
-    const [workouts, setWorkout] = useState('');
-    const [workoutsLoading, setWorkoutLoading] = useState(false)
-
-    loadWorkOut = () => {
+    loadWorkOut(){
+        const thisComp = this;
         fetch(WORKOUTS_ENDPOINT, lookupPublicOptions)
         .then(resp=>resp.json())
         .then(respData=>{
-            setWorkout(respData);
-            setWorkoutLoading(true)
+            if (respData.results !== undefined) {
+                thisComp.setState({
+                    workouts: respData.results,
+                    doneLoadingWorkouts: true
+                })
+            } else {
+                thisComp.setState({
+                    workouts: respData,
+                    doneLoadingWorkouts: true
+                })
+            }
+            
         })
-        .catch(error=> alert('Check you internet provider you motherfucker'))
-    };
+        .catch(error=> {
+            alert('Check you internet provider you motherfucker')})
+    }
 
     handlePress = (id) => {
-        console.log(id)
-    };
+        this.props.navigation.navigate('HomeDetail', {id:id})
+    }
 
-    return (
-        <View style={styles.homepage}>
+    componentDidMount(){
+        this.loadWorkOut()
+    }
+    
+    render() {
+        const {doneLoadingWorkouts, workouts} = this.state;
+        return (
+            <View style={styles.homepage}>
             <MyHeader title='Homepage' />
-            <Button title='Test Button' onPress={()=>{props.navigation.navigate('WorkoutDetail',{
-                                                                    itemId: 86,
-                                                                    title: 'anything you want here',
-                                                                    }
-                                                                    )
-                                                        }}
-             />
             <SafeAreaView style={styles.container}>
-                <SectionList
-                    sections={DATA}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={({ item }) => <SectionItem item={item} handlePress={handlePress}  />}
-                    renderSectionHeader={({ section: { title } }) => (
-                        <SectionHeader title={title}  />
-                    )}
-                />
+                {doneLoadingWorkouts ?
+                    <FlatList
+                        data={workouts}
+                        renderItem={({ item }) => <SectionItem item={item} handlePress={this.handlePress} />}
+                        keyExtractor={item => item.id}
+                    />
+                :
+                <Text>Loading</Text>
+                }
+                
             </SafeAreaView>
         </View>
-    )
+        )
+    }
 }
-
 
 
 const styles = StyleSheet.create({

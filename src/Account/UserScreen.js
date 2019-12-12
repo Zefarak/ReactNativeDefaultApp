@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import LoginScreen from "./Login";
 import LoginWallpaperScreen from "../components/LoginWallpaperScreen";
+import ProfileScreen from "./ProfileScreen";
 
 
 class UserScreen extends React.Component {
@@ -23,11 +24,25 @@ class UserScreen extends React.Component {
         })
     }
 
-    componentDidMount() {
-        const loggedIn = AsyncStorage.getItem('loggedIn', false)
+    refreshPage = () => {
+        this.componentDidMount()
+    }
+
+    async componentDidMount () {
+        const loggedIn = await AsyncStorage.getItem('loggedIn', false)
+        console.log('is user logged?', loggedIn)
         this.setState({
             loggedIn: loggedIn
         })
+    }
+    
+    componentDidUpdate(nextProps) {
+        if ( nextProps.navigation.state.params !== undefined) {
+            const loggedIn = nextProps.navigation.state.params.loggedIn
+            this.setState({
+                loggedIn: loggedIn
+            })
+        }
     }
 
     handleLoginNavigation = () => {
@@ -40,15 +55,20 @@ class UserScreen extends React.Component {
 
     render() {
         const {isLoggedIn, logimMessage, isPAsswordSet} = this.props.appState;
-        const {LoggedIn} = this.state;
+        const {loggedIn} = this.state;
         const {registerView} = this.props;
 
         return(
             <View>
-            {LoggedIn ?
-                 <LoginScreen />
+            {loggedIn ?
+                 <ProfileScreen />
                  :
-                <LoginWallpaperScreen handleButton={this.handleLoginNavigation} handleRegister={this.handleRegister} navigation={this.props.navigation} />
+                <LoginWallpaperScreen 
+                    handleButton={this.handleLoginNavigation} 
+                    handleRegister={this.handleRegister} 
+                    navigation={this.props.navigation} 
+                    refreshPage={this.refreshPage}
+                    />
              }
            </View>
         );

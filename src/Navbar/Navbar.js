@@ -7,12 +7,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import CategoryHomepageScreen from "../Category/Homepage";
 import WorkOutNavigation from '../WorkOut/WorkOutNavigator';
 import AccountNavigation from "../Account/AccountNavigation";
-import InputField from "../components/General/InputField";
+import HomepageNavigation from "../Homepage/HomepageNavigation";
 
 
 const Navbar = createBottomTabNavigator({
         Home: {
-            screen: HomepageScreen,
+            screen: HomepageNavigation,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
                     <Icon name="home" size={25} color={tintColor} />
