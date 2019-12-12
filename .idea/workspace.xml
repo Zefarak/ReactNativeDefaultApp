@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2813c4-7612-4f54-a57d-21b2020e64ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/my_images/login_image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Account/AccountNavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Badge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Block.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Divider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Progress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Switch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Text.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/themes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/RegisterOrLoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/RegisterOrLoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/UserScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/UserScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Category/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Category/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Category/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Category/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginWallpaperScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginWallpaperScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/endpoints.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,64 +21,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Account/AccountNavigation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Navbar/Navbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="724">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LoginWallpaperScreen.js">
+        <entry file="file://$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+              <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Account/Register.js">
+        <entry file="file://$PROJECT_DIR$/src/constants/endpoints.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Input.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="85">
+              <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -141,7 +81,6 @@
         <option value="$PROJECT_DIR$/src/components/General/Card.js" />
         <option value="$PROJECT_DIR$/src/Explore/Explore.js" />
         <option value="$PROJECT_DIR$/src/WorkOut/WorkOutNavigator.js" />
-        <option value="$PROJECT_DIR$/src/constants/endpoints.js" />
         <option value="$PROJECT_DIR$/src/components/General/InputField.js" />
         <option value="$PROJECT_DIR$/src/WorkOut/WorkOutCreate.js" />
         <option value="$PROJECT_DIR$/src/Homepage/Homepage.js" />
@@ -166,6 +105,8 @@
         <option value="$PROJECT_DIR$/src/components/LoginWallpaperScreen.js" />
         <option value="$PROJECT_DIR$/src/Account/Register.js" />
         <option value="$PROJECT_DIR$/src/components/Input.js" />
+        <option value="$PROJECT_DIR$/src/constants/endpoints.js" />
+        <option value="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" />
       </list>
     </option>
   </component>
@@ -179,7 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,27 +127,11 @@
               <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Account" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Navbar" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,11 +139,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/my_images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -262,19 +188,23 @@
       <workItem from="1575464544635" duration="5305000" />
       <workItem from="1575484444547" duration="5760000" />
       <workItem from="1575529222745" duration="2478000" />
+      <workItem from="1575542922621" duration="80000" />
+      <workItem from="1576132769755" duration="6491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64193000" />
+    <option name="totallyTimeSpent" value="70764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10590095" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -438,13 +368,6 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/endpoints.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -630,37 +553,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Navbar/Navbar.js">
+    <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginWallpaperScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="792">
+          <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Account/AccountNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state relative-caret-position="102">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Input.js">
+    <entry file="file://$PROJECT_DIR$/src/Navbar/Navbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="537">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginWallpaperScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -671,12 +591,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1134" column="13" selection-start-line="1134" selection-start-column="13" selection-end-line="1134" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/endpoints.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
