@@ -1,8 +1,8 @@
 import React from 'react';
-import {Text, View, StyleSheet, SafeAreaView, Button, Item} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView, ScrollView, ActivityIndicator} from 'react-native';
 import {SectionItem} from './components/SectionItem'
 import MyHeader from '../components/General/Header'
-import { lookupPublicOptions } from '../Account/auth';
+import { lookupPublicOptions, checkLoginAndRefreshToken } from '../Account/auth';
 import {WORKOUTS_ENDPOINT} from '../constants/endpoints'
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -42,26 +42,33 @@ class HomepageScreen extends React.Component {
         this.props.navigation.navigate('HomeDetail', {id:id})
     }
 
+    updateTokens(){
+        const logged = checkLoginAndRefreshToken();
+        
+    }
+
     componentDidMount(){
         this.loadWorkOut()
+        this.updateTokens()
     }
     
     render() {
         const {doneLoadingWorkouts, workouts} = this.state;
         return (
             <View style={styles.homepage}>
-            <MyHeader title='Homepage' />
+            <MyHeader title='Latest Workouts' />
             <SafeAreaView style={styles.container}>
                 {doneLoadingWorkouts ?
-                    <FlatList
-                        data={workouts}
-                        renderItem={({ item }) => <SectionItem item={item} handlePress={this.handlePress} />}
-                        keyExtractor={item => item.id}
-                    />
-                :
-                <Text>Loading</Text>
+                    <ScrollView nestedScrollEnabled={true}>
+                        <FlatList
+                            data={workouts}
+                            renderItem={({ item }) => <SectionItem item={item} handlePress={this.handlePress} />}
+                            keyExtractor={item => item.id}
+                        />
+                    </ScrollView>
+                    :
+                    <ActivityIndicator size="large" color="#0000ff" />
                 }
-                
             </SafeAreaView>
         </View>
         )

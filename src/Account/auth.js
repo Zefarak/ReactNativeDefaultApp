@@ -7,7 +7,7 @@ export function lookupOptionsGETWithToken(token) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': 'Bearer ' + token
+            'Authorization': 'Bearer ' + token,
         },
 
     }
@@ -106,11 +106,12 @@ export async function checkLoginAndRefreshToken() {
                         .then(async(respData)=> {
                             if (respData.status === 401) {
                                 await AsyncStorage.setItem('loggedIn', false)
+                                return false
                             } else {
                                 const new_token = respData.access;
                                 await AsyncStorage.setItem('access_token', new_token)
                                 await AsyncStorage.setItem('loggedIn', true)
-                                return false
+                                return true
                             }
                         })
                 } else {

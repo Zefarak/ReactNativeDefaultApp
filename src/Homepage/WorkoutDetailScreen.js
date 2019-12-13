@@ -7,22 +7,10 @@ import {
     WORKOUT_PARTS_LIST_ENDPOINT,
     PLAN_LIST_ENDPOINT
 } from '../constants/endpoints';
-import {lookupOptionsGETWithToken, lookupPublicOptions} from '../Account/auth';
+import {lookupOptionsGETWithToken, lookupPublicOptions, requestToken, checkLoginAndRefreshToken} from '../Account/auth';
 import MyButton from "../components/Button";
-
-const list = [
-    {
-      name: 'Amy Farha',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
-    },
-    {
-      name: 'Chris Jackson',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
-    },
-
-  ];
+import PlanChooserComponent from '../components/General/PlanChooserComponent';
+import IsLoggedComponent from './components/IsLoggedComponent';
 
 
 class WorkoutDetailScreen extends Component {
@@ -38,7 +26,8 @@ class WorkoutDetailScreen extends Component {
             isVisible: false,
             overlay_data:{},
 
-            login_message: false,
+            isLogged: false,
+            showPlans:false,
             plans: [],
             doneLoadingPlans: false
 
@@ -58,7 +47,6 @@ class WorkoutDetailScreen extends Component {
         })
         .catch(error=>{
             console.log('error', error);
-            alert('Something is Wrong, Nio')
         })
     }
 
@@ -69,37 +57,27 @@ class WorkoutDetailScreen extends Component {
         })
     };
 
-    loadPlans = () => {
-        const thisComp = this;
-        const endpoint = PLAN_LIST_ENDPOINT + '?active=true';
-        const token = AsyncStorage.getItem('access');
-        fetch(endpoint, lookupOptionsGETWithToken(token))
-            .then(resp=>resp.json())
-            .then(respData=>{
-                console.log(respData);
-                if(respData.code !== undefined) {
-                    console.log('here!');
-                    thisComp.setState({
-                        login_message:true,
-                        doneLoadingPlan: true
-                    })
-                } else {
-                    this.setState({
-                        plans: respData.result,
-                        doneLoadingPlan: true
-                    })
-                }
-            })
+    handlePlans = () => {
+        this.setState({
+            showPlans: true
+        })
     };
 
     componentDidMount(){
         const id = JSON.stringify(this.props.navigation.getParam('id', 1));
         this.loadWorkout(id)
+        AsyncStorage.getItem('isLogged').then(
+            value=>{
+                this.setState({
+                    isLogged:value
+                })
+            }
+        ).done()
     }
 
     render(){
-        const {workout, doneLoading, overlay_data, doneloadingPlans, plans, login_message } = this.state;
-        console.log(overlay_data);
+        const {workout, doneLoading, overlay_data, isLogged } = this.state;
+        console.log('logged', isLogged)
         return (
             <View style={styles.screen}>
                 {doneLoading ?
@@ -123,16 +101,11 @@ class WorkoutDetailScreen extends Component {
                                 ))
                             }
                         </View>
-                        <Button title='Add To Plan' onPress={this.loadPlans} />
-                        {login_message?
-                            <View>
-                                {doneloadingPlans ?
-                                    <Text>Data!</Text>
-                                    :
-                                    <MyButton title='Login'/>
-                                }
-                            </View>
-                        :<View><Text>You need to login</Text></View>}
+                        {isLogged ?
+                                <PlanChooserComponent isLogged={this.state.isLogged} />
+                            :
+                                <IsLoggedComponent isLogged={isLogged} navigation={this.props.navigation} handlePlans={this.handlePlans} />                           
+                        }
                     </Card>
             :
             <Text>Loading....</Text>
