@@ -33,7 +33,7 @@ class LoginScreen extends React.Component {
         const data = this.state;
         const loginOptions = requestToken(data);
         if(loginOptions){
-            this.props.navigation.push('Account', {loggedIn: true})
+            this.props.navigation.push('Account', {isLogged: true})
         } else {
             alert('Wrong Password')
         }
@@ -50,18 +50,18 @@ class LoginScreen extends React.Component {
                         <Input
                             placeholder='Username'
                             onChangeText={this.handleUsername}
-                            
+
                         />
                         <Input
                             placeholder='Password'
                             onChangeText={this.handlePassword}
                             secureTextEntry={true}
                             password={true}
-                        /> 
+                        />
                         <MyButton style={styles.shadowButton} onPress={this.handleLogin}>
                             <Text center caption gray>Login</Text>
                         </MyButton>
-                        
+
                     </ScrollView>
                 </View>
             )
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         flex: 1,
     },
-    
+
     notificationWrapper: {
         position: 'absolute',
         bottom: 0,

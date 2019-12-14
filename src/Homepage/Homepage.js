@@ -42,14 +42,9 @@ class HomepageScreen extends React.Component {
         this.props.navigation.navigate('HomeDetail', {id:id})
     }
 
-    updateTokens(){
-        const logged = checkLoginAndRefreshToken();
-        
-    }
-
+    
     componentDidMount(){
         this.loadWorkOut()
-        this.updateTokens()
     }
     
     render() {

@@ -104,7 +104,7 @@ class WorkoutDetailScreen extends Component {
                         {isLogged ?
                                 <PlanChooserComponent isLogged={this.state.isLogged} />
                             :
-                                <IsLoggedComponent isLogged={isLogged} navigation={this.props.navigation} handlePlans={this.handlePlans} />                           
+                                <IsLoggedComponent isLogged={isLogged} navigation={this.props.navigation} handlePlans={this.handlePlans} />
                         }
                     </Card>
             :
@@ -130,8 +130,9 @@ const styles = StyleSheet.create({
     secondInfo: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 10
+        marginBottom: 10,
+
     }
-})
+});
 
 export default WorkoutDetailScreen;

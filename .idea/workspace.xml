@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2813c4-7612-4f54-a57d-21b2020e64ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Account/components/NewPlan.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/UserScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/UserScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Homepage/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homepage/Homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/endpoints.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,23 +25,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
+            <state relative-caret-position="231">
+              <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Account/ProfileScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-184">
+              <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/endpoints.js">
+        <entry file="file://$PROJECT_DIR$/src/Account/components/NewPlan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+            <state relative-caret-position="316">
+              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Account/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="89" column="32" lean-forward="true" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -55,6 +84,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>header</find>
+      <find>loggedIn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -84,9 +114,7 @@
         <option value="$PROJECT_DIR$/src/components/General/InputField.js" />
         <option value="$PROJECT_DIR$/src/WorkOut/WorkOutCreate.js" />
         <option value="$PROJECT_DIR$/src/Homepage/Homepage.js" />
-        <option value="$PROJECT_DIR$/src/Account/Login.js" />
         <option value="$PROJECT_DIR$/src/Account/RegisterOrLoginScreen.js" />
-        <option value="$PROJECT_DIR$/src/Account/auth.js" />
         <option value="$PROJECT_DIR$/src/Category/Homepage.js" />
         <option value="$PROJECT_DIR$/src/Category/Category.js" />
         <option value="$PROJECT_DIR$/src/components/themes.js" />
@@ -99,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/components/Switch.js" />
         <option value="$PROJECT_DIR$/src/components/Text.js" />
         <option value="$PROJECT_DIR$/src/components/Button.js" />
-        <option value="$PROJECT_DIR$/src/Account/UserScreen.js" />
         <option value="$PROJECT_DIR$/src/Account/AccountNavigation.js" />
         <option value="$PROJECT_DIR$/src/Navbar/Navbar.js" />
         <option value="$PROJECT_DIR$/src/components/LoginWallpaperScreen.js" />
@@ -107,6 +134,11 @@
         <option value="$PROJECT_DIR$/src/components/Input.js" />
         <option value="$PROJECT_DIR$/src/constants/endpoints.js" />
         <option value="$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js" />
+        <option value="$PROJECT_DIR$/src/Account/Login.js" />
+        <option value="$PROJECT_DIR$/src/Account/UserScreen.js" />
+        <option value="$PROJECT_DIR$/src/Account/auth.js" />
+        <option value="$PROJECT_DIR$/src/Account/components/NewPlan.js" />
+        <option value="$PROJECT_DIR$/src/Account/ProfileScreen.js" />
       </list>
     </option>
   </component>
@@ -126,6 +158,17 @@
             <path>
               <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReactNativeDefaultApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReactNativeDefaultApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Account" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,11 +233,14 @@
       <workItem from="1575529222745" duration="2478000" />
       <workItem from="1575542922621" duration="80000" />
       <workItem from="1576132769755" duration="6491000" />
+      <workItem from="1576214495585" duration="94000" />
+      <workItem from="1576242722083" duration="6693000" />
+      <workItem from="1576261901284" duration="7229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70764000" />
+    <option name="totallyTimeSpent" value="84780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -204,7 +250,6 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -216,6 +261,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -434,13 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Category/Category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -543,23 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="36" column="38" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Account/AccountNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -612,12 +634,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Homepage/WorkoutDetailScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
+        <state relative-caret-position="180">
+          <caret line="103" column="33" selection-start-line="103" selection-start-column="33" selection-end-line="103" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="89" column="32" lean-forward="true" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account/UserScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account/components/NewPlan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account/ProfileScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

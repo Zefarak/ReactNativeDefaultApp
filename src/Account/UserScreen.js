@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import LoginScreen from "./Login";
 import LoginWallpaperScreen from "../components/LoginWallpaperScreen";
 import ProfileScreen from "./ProfileScreen";
+import {authStatus} from "./auth";
 
 
 class UserScreen extends React.Component {
@@ -14,7 +15,8 @@ class UserScreen extends React.Component {
         super(props);
         this.state = {
             registerView: false,
-            loggedIn: false,
+            isLogged: false,
+            token: ''
         }
     }
 
@@ -22,28 +24,11 @@ class UserScreen extends React.Component {
         this.setState({
             registerView: !this.state.registerView
         })
-    }
+    };
 
     refreshPage = () => {
         this.componentDidMount()
-    }
-
-    async componentDidMount () {
-        const loggedIn = await AsyncStorage.getItem('loggedIn', false)
-        console.log('is user logged?', loggedIn)
-        this.setState({
-            loggedIn: loggedIn
-        })
-    }
-    
-    componentDidUpdate(nextProps) {
-        if ( nextProps.navigation.state.params !== undefined) {
-            const loggedIn = nextProps.navigation.state.params.loggedIn
-            this.setState({
-                loggedIn: loggedIn
-            })
-        }
-    }
+    };
 
     handleLoginNavigation = () => {
         this.props.navigation.navigate('RegisterOrLogin');
@@ -53,20 +38,44 @@ class UserScreen extends React.Component {
         this.props.navigation.navigate('Register');
     };
 
-    render() {
-        const {isLoggedIn, logimMessage, isPAsswordSet} = this.props.appState;
-        const {loggedIn} = this.state;
-        const {registerView} = this.props;
+    async loadData(){
+        const dataFromStore = await authStatus();
+        console.log('dataFromStore', dataFromStore);
+        const isLogged = await AsyncStorage.getItem('isLogged');
+        const token = await AsyncStorage.getItem('access_token');
+        this.setState({
+            isLogged: isLogged,
+            token: token
+        })
+    }
 
+    componentDidMount () {
+        this.loadData()
+    }
+
+    componentDidUpdate(nextProps) {
+        if (nextProps.navigation.state.params !== undefined){
+            if (nextProps.navigation.state.params.loggedIn !== this.props.navigation.state.params.loggedIn) {
+                const loggedIn = nextProps.navigation.state.params.isLogged
+                console.log('loggedIn', loggedIn);
+                this.setState({
+                    isLogged: isLogged
+                })
+            }
+        }
+    }
+
+    render() {
+        const {token, isLogged} = this.state;
         return(
             <View>
-            {loggedIn ?
-                 <ProfileScreen />
+            {isLogged ?
+                 <ProfileScreen token={token} />
                  :
-                <LoginWallpaperScreen 
-                    handleButton={this.handleLoginNavigation} 
-                    handleRegister={this.handleRegister} 
-                    navigation={this.props.navigation} 
+                <LoginWallpaperScreen
+                    handleButton={this.handleLoginNavigation}
+                    handleRegister={this.handleRegister}
+                    navigation={this.props.navigation}
                     refreshPage={this.refreshPage}
                     />
              }
