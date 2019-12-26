@@ -1,8 +1,7 @@
 import React from 'react';
-import {ActivityIndicator, ScrollView, View} from 'react-native';
+import {ActivityIndicator, ScrollView, View, Text} from 'react-native';
 import {WORKOUTS_ENDPOINT} from "../constants/endpoints";
-import {lookupPublicOptions} from "../Account/auth";
-import Text from "react-native-web/dist/exports/Text";
+import {lookupPublicOptions} from "../Account/auth"; 
 import {FlatList} from "react-native-gesture-handler";
 import {SectionItem} from "../Homepage/components/SectionItem";
 
@@ -23,14 +22,16 @@ class CategoryDetailScreen extends React.Component {
         }
     }
 
-    loadWorkouts(){
+    loadWorkouts(category_id){
         const thisComp = this;
-        const endpoint = WORKOUTS_ENDPOINT + '?category=';
+        const endpoint = WORKOUTS_ENDPOINT + '?category='+ category_id.replace(/"/g, '');
+        console.log('endpoit-->', endpoint)
         fetch(endpoint, lookupPublicOptions)
             .then(resp=>resp.json())
             .then(respData=>{
+                console.log(respData)
                 thisComp.setState({
-                    workouts: respData.result,
+                    workouts: respData.results,
                     doneLoadingWorkouts:true
                 })
             })
@@ -38,13 +39,17 @@ class CategoryDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        const category_id = JSON.stringify(navigation.getParam('itemId', ''));
+        const category_id = JSON.stringify(navigation.getParam('itemID', ''));
         const title = JSON.stringify(navigation.getParam('title', 'Problem'));
         this.setState({
             title: title,
             id: category_id
         });
         this.loadWorkouts(category_id);
+    }
+
+    handlePress = (id) => {
+        console.log('hitted' ,handlePress)
     }
 
     render() {

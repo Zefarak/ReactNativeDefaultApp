@@ -5,13 +5,13 @@ import {Text, TouchableHighlight, View, StyleSheet} from 'react-native';
 export const WorkOutComponent = props => {
 
     handleClick = () => {
-        const id = this.props.cate;
-        this.props.handleButton(cate)
+        const {id} = props.cate;
+        props.handlePressButton(id)
     }
 
     return (
-        <TouchableHighlight style={styles.box} onPress={this.handlePressButton} >
-            <Text>{cate.title}</Text>
+        <TouchableHighlight style={styles.box} onPress={handleClick} >
+            <Text>{props.cate.title}</Text>
         </TouchableHighlight>
     )
 }

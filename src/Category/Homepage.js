@@ -24,14 +24,13 @@ const CATEGORIES = [
 
 class CategoryHomepageScreen extends React.Component {
 
-    handlePressButton = (cate) => {
-        console.log('clicked!')
+    handlePressButton = (id) => {
         this.props.navigation.navigate('CategoryDetail', {
-            itemID: cate.id,
-            title: cate.title
+            itemID: id,
+            title: 'CATEGORIES[id]'
         })
     };
-
+    
     render() {
         return(
             <View>
@@ -40,7 +39,7 @@ class CategoryHomepageScreen extends React.Component {
                 <View style={styles.screen}>
                     {CATEGORIES.map((cate, i)=>{
                         return (
-                            <WorkOutComponent handleClicl={this.handlePressButton} cate={cate} />
+                            <WorkOutComponent handlePressButton={this.handlePressButton} cate={cate} />
                         )
                     })}
                 </View>

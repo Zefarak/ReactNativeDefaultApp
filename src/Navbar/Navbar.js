@@ -8,7 +8,7 @@ import CategoryHomepageScreen from "../Category/Homepage";
 import WorkOutNavigation from '../WorkOut/WorkOutNavigator';
 import AccountNavigation from "../Account/AccountNavigation";
 import HomepageNavigation from "../Homepage/HomepageNavigation";
-
+import CategoryNavigation from "../Category/CategoryNavbar";
 
 const Navbar = createBottomTabNavigator({
         Home: {
@@ -20,7 +20,7 @@ const Navbar = createBottomTabNavigator({
             }
         },
         Category: {
-            screen: CategoryHomepageScreen,
+            screen: CategoryNavigation,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
                     <Icon name="hourglass" size={25} color={tintColor} />

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {View, Button} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 import {Input} from "react-native-elements";
-
+import MyHeader from '../../components/General/Header';
 
 const NewPlan = props => {
     const [title, setTitle] = useState('');
@@ -11,26 +11,27 @@ const NewPlan = props => {
         setTitle(text)
     };
 
-    handleGuide =(text) =>{
+    handleGuide = (text) =>{
         setGuide(text)
     };
 
-    handleSubmit =() =>{
+    handleSubmit = () =>{
         const data = {
             title: title,
             guide: guide
 
         };
-        this.props.handleNewPlanSubmit(data)
+        props.handleNewPlanSubmit(data)
     };
 
     handleShow = () => {
-        this.props.handleShowNewPlan()
+        props.handleShowNewPlan()
     }
 
     return (
 
-        <View>
+        <View style={styles.screen}>
+            <MyHeader title='Create new plan' />
             <Input
                 placeholder='Enter a Title'
                 onChangeText={this.handleTitle}
@@ -40,10 +41,23 @@ const NewPlan = props => {
                 onChangeText={this.handleGuide}
             />
             <Button title='Create new Plan' onPress={this.handleSubmit} />
-            <Button title='Close' color='red' onPress={this.handleShow} />
+            <View style={{flex:0.1}}/>
+            <Button style={styles.closeButton} title='Close' color='red' onPress={this.handleShow} />
         </View>
     )
 };
+
+const styles = StyleSheet.create({
+    screen:{
+        alignItems: 'center',
+        padding: 10
+    },
+    closeButton: {
+        width: '50%',
+        marginTop: 30,
+        padding: 10
+    }
+})
 
 
 export default NewPlan;

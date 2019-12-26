@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, ActivityIndicator, Button, TouchableOpacity, AsyncStorage} from 'react-native';
 import {ListItem} from "react-native-elements";
 import { PLAN_LIST_ENDPOINT } from '../constants/endpoints';
-import {lookupOptionsGETWithToken, checkLoginAndRefreshToken, refreshToken} from './auth';
+import {lookupOptionsGETWithToken, checkLoginAndRefreshToken, refreshToken, lookupPOSToptionsWithToken} from './auth';
 import MyHeader from "../components/General/Header";
 import MyButton from "../components/Button";
 import NewPlan from "./components/NewPlan";
@@ -52,8 +52,16 @@ class ProfileScreen extends React.Component {
         })
     };
 
-    handleNewPlanSubmit = data => {
-        console.log(data);
+    handleNewPlanSubmit = async (data) => {
+        const token  = await AsyncStorage.getItem('access_token')
+        fetch(PLAN_LIST_ENDPOINT, lookupPOSToptionsWithToken(data, token))
+            .then(resp=> resp.json())
+            .then(respData => {
+                if (respData.code){
+                    
+                }
+                console.log('post data', respData)
+            })
     };
 
     componentDidMount() {
