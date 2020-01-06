@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Text } from "react-native";
+import { View, ScrollView, StyleSheet, Text, ActivityIndicator } from "react-native";
 import {Input} from 'react-native-elements';
 import MyButton from '../components/Button';
 
 import {requestToken} from '../Account/auth';
+
 
 
 class LoginScreen extends React.Component {
@@ -13,7 +14,9 @@ class LoginScreen extends React.Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            message: false,
+            loadingState: false
         }
     }
 
@@ -30,12 +33,19 @@ class LoginScreen extends React.Component {
     };
 
     handleLogin = async () => {
-        const data = this.state;
-        const loginOptions = requestToken(data);
-        if(loginOptions){
-            this.props.navigation.push('Account', {isLogged: true})
+        this.setState({
+            loadingState: true,
+            message: false
+        });
+        const loggedOptions = await requestToken(this.state);
+        console.log('repsonse data', loggedOptions);
+        if (loggedOptions.status) {
+
         } else {
-            alert('Wrong Password')
+            this.setState({
+                loadingState: false,
+                message: loggedOptions.message
+            })
         }
     };
 
@@ -61,8 +71,23 @@ class LoginScreen extends React.Component {
                         <MyButton style={styles.shadowButton} onPress={this.handleLogin}>
                             <Text center caption gray>Login</Text>
                         </MyButton>
+                        {this.state.loadingState ?
+                            <View>
+                                <ActivityIndicator size='large' color="#0000ff" />
+                            </View>
+                            :
+                            null
+                        }
+                        {this.state.message ?
+                            <View>
+                                <Text>{this.state.message}</Text>
+                            </View>
+                            :
+                            null
+                        }
 
                     </ScrollView>
+
                 </View>
             )
             }

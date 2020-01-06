@@ -59,19 +59,38 @@ export function lookupPOSTOptions(data){
 
 
 export async function requestToken(data){
-
+    console.log('hitted');
     return fetch(TOKEN_ENDPOINT, lookupPOSTOptions(data))
         .then((response)=> response.json())
         .then(async (responseData)=>{
-            await AsyncStorage.setItem('access_token', responseData.access);
-            await AsyncStorage.setItem('refresh_token', responseData.refresh);
-            await AsyncStorage.setItem('isLogged', 'true');
-            return true
+            console.log(responseData)
+            if(responseData.access){
+                console.log('worked!');
+                await AsyncStorage.setItem('access_token', responseData.access);
+                await AsyncStorage.setItem('refresh_token', responseData.refresh);
+                await AsyncStorage.setItem('isLogged', 'true');
+                return {
+                    status: true
+                }
+            }
+            else {
+                await AsyncStorage.setItem('access_token', '');
+                await AsyncStorage.setItem('refresh_token', '');
+                await AsyncStorage.setItem('isLogged', "false");
+                return {
+                    status: false,
+                    message: responseData.detail
+                }
+            }
+
         })
         .catch(async (error)=>{
-            console.log('error', error)
-            await AsyncStorage.setItem('isLogged', false);
-            return false
+            console.log('error', error);
+            await AsyncStorage.setItem('isLogged', "false");
+            return {
+                status: false,
+                message: 'Check your internet Provider'
+            }
         })
 }
 
@@ -145,12 +164,12 @@ fetch(CURRENT_USER_ENDPOINT, lookupOptionsGETWithToken(access_token))
 
 export async function authStatus(){
     // returns [isLogged, access_token, datetimeLogged]
-    console.log('start Process');
+
     const access_token = await AsyncStorage.getItem('access_token');
     const refresh_token = await AsyncStorage.getItem('refresh_token');
     const isLogged = await AsyncStorage.getItem('isLogged');
     const datetimeLogged = await AsyncStorage.getItem('datetimeLogged');
-
+    console.log('start Process', access_token, refresh_token);
     // check if is logged
     if (isLogged) {
         console.log('user is logged');
@@ -162,6 +181,7 @@ export async function authStatus(){
                     const data = {'refresh': refresh_token};
                     return refreshToken(data)
                 } else {
+                    console.log('rejected');
                     return {
                         isLogged: true,
                         access_token: true,
@@ -173,6 +193,8 @@ export async function authStatus(){
                 console.log('error on token auth', error)
             })
     } else {
+        await AsyncStorage.setItem(access_token, false);
+        await AsyncStorage.setItem(refresh_token, false);
         return {
             isLogged: false,
             access_token: false,

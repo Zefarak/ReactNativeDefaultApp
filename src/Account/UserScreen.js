@@ -69,7 +69,7 @@ class UserScreen extends React.Component {
         const {token, isLogged} = this.state;
         return(
             <View>
-            {isLogged ?
+            {isLogged === 'true' ?
                  <ProfileScreen token={token} />
                  :
                 <LoginWallpaperScreen
